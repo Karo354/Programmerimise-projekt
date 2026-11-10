@@ -13,6 +13,6 @@
      levelite kujundus
 7. Liikumine - Karoliine
 8. Objektide korjamine - Karoliine
-9. Boss?
-10. Tutorial - 
+9. Boss 
+10. Tutorial - Karoliine
 11. Nimi *
