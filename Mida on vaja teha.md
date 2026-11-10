@@ -1,17 +1,16 @@
 ### TO DO:
 1. 3 levelit
-2. Story *
-3. Puzzles
-     teemad *
-     küsimused
-     vastused
+3. Puzzles - Fiona
+     story 
+     teemad 
+     küsimused ja vastused
      vajalikud objektid
      kuidas töötavad
-5. Kujundus/graafika *
+5. Kujundus/graafika - Fiona 
      tegelase välimus
      levelite kujundus
-6. Liikumine
-7. Objektide korjamine
+6. Liikumine - Karoliine
+7. Objektide korjamine - Karoliine
 8. Boss?
-9. Tutorial
+9. Tutorial - 
 10. Nimi *
