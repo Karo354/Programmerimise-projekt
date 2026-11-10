@@ -1,13 +1,13 @@
 ### TO DO:
 1. 3 levelit
-3. Puzzles - Fiona
+3. Puzzles - Fiona,
 
      story 
      teemad 
      küsimused ja vastused
      vajalikud objektid
      kuidas töötavad
-5. Kujundus/graafika - Fiona 
+5. Kujundus/graafika - Fiona,
 
      tegelase välimus
      levelite kujundus
