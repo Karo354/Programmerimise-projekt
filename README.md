@@ -1,2 +1,2 @@
 # Programmerimise-projekt
-### Siin on meie kood seoses tekstipõhise fantaasia mänguga, mis on tehtud pygames.
+### Siin on Fiona ja Karoliine kood seoses tekstipõhise fantaasia mänguga, mis on tehtud pygames.
