@@ -1,5 +1,3 @@
-import pygame
-
 def tervitus():
     print('''Teretulemast!
     Alustate müstilist mängu nimega "MustLoss".
