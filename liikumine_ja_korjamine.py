@@ -1,3 +1,4 @@
+# Esialgne liikumise ja esemete üles korjamise programm
 seljakott = []
 praegune_asukoht = "Lossi kolmandal korrusel koridoris"
 
