@@ -2,6 +2,7 @@
 seljakott = []
 praegune_asukoht = "Lossi kolmandal korrusel koridoris"
 
+# Mängu õpetus
 def õpetus():
     print("KÄSUD: ")
     print("Kui tahad eset võtta kirjuta kas 'võta ...', 'haara ...' või 'kraba ...', asendades '...' valitud esemega.")
@@ -9,6 +10,7 @@ def õpetus():
     print("Käsk 'seljakott' näitab sulle su seljakoti sisu.")
     print("Käsk 'välju' lõpetab mängu.")
 
+# Ruumid milles mängija liigub
 toad = {"Lossi kolmandal korrusel koridoris": {
     "suunad": {
         "alla": "Lossi teisel korrusel koridoris",
@@ -42,11 +44,13 @@ print()
 print("Oled", praegune_asukoht)
 print(toad[praegune_asukoht]['kirje'])
 
+# Sõnastikud käskudele mida mängija kasutab
 võtmise_sõnastik = ("võta", "haara", "kraba")
 liikumise_sõnastik = ("mine", "pööra")
 
 objektide_sõnastik = {'raamat': 'raamatu', 'küünal': 'küünla', 'võti': 'võtme'}
 
+# Programmi tsükkel
 while True:
     sisend = input("> ").lower()
     if not sisend:
@@ -68,6 +72,7 @@ while True:
                 print(f"Eset '{soovitud_ese}' pole siin.")
         else:
             print("Mida soovid võtta?")
+            
 # Liikumine tubade vahel        
     elif käsk in liikumise_sõnastik:
         if len(liigutus) > 1:
