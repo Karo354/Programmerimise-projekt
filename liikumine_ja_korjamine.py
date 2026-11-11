@@ -1,7 +1,6 @@
 seljakott = []
 praegune_asukoht = "Lossi kolmandal korrusel koridoris"
 
-
 def õpetus():
     print("KÄSUD: ")
     print("Kui tahad eset võtta kirjuta kas 'võta ...', 'haara ...' või 'kraba ...', asendades '...' valitud esemega.")
