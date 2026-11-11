@@ -32,10 +32,10 @@ pygame.display.set_icon(ikoon)
 pygame.display.set_caption('Tutorial')
 
 # Teksti sisestamine
-user_tekst = ''
-sisestus = pygame.Rect(200, 200, 140, 32)
-värv_aktiivne = pygame.Color("gray14")
-värv_passiivne = pygame.Color("gray15")
+user_tekst = 'Aa'
+sisestus = pygame.Rect(180, 100, 140, 32)
+värv_aktiivne = pygame.Color('lightskyblue3')
+värv_passiivne = pygame.Color("lightgray")
 värv = värv_passiivne
 active = False
 
@@ -63,7 +63,7 @@ def tutorial_menüü():
     # Tagasi nupp
     pygame.draw.rect(ekraan, (250, 250, 250),
                      [205, 350, 100, 40], 0)
-    tekst4 = font1.render("TAGASI", True, must)
+    tekst4 = font1.render("MENÜÜ", True, must)
     ekraan.blit(tekst4, (Nupp_liikumine.x + 180, Nupp_liikumine.y + 120))
 
     pygame.display.update()
@@ -88,7 +88,7 @@ def liikumine_lk1():
     
     pygame.draw.rect(ekraan, (250, 250, 250),
                      [205, 350, 100, 40], 0)
-    tekst8 = font1.render("MENÜÜ", True, must)
+    tekst8 = font1.render("TAGASI", True, must)
     ekraan.blit(tekst8, (Nupp_liikumine.x + 180, Nupp_liikumine.y + 120))
 
 def liikumine_lk2():
@@ -97,13 +97,26 @@ def liikumine_lk2():
     pygame.draw.rect(ekraan, (220, 220, 220),
                      [10, 200, 480, 200], 0)
     tekst9 = font2.render('''
-    Liikuda saad kui kirjutad ketstikasti "liigu ...", asendades "..."
+    Liikuda saad kui kirjutad tekstikasti "liigu ...", asendades "..."
     valitud suunaga.
     Näiteks: "liigu vasakule".
     Proovi see üleval tekstikastis läbi.''', True, must)
     tekstRect9 = tekst9.get_rect()
     tekstRect9.center = (240, 235)
     ekraan.blit(tekst9, tekstRect9)
+    
+    #Tekst
+    if active:
+        värv = värv_aktiivne
+    else:
+        värv = värv_passiivne
+    pygame.draw.rect(ekraan, värv, sisestus, 0)
+    tekst = font1.render(user_tekst, True, (0, 0, 0))
+    ekraan.blit(tekst, (sisestus.x + 5, sisestus.y + 5))
+    img = font1.render(user_tekst, True, must)
+    rect = img.get_rect()
+    rect.topleft = (20, 20)
+    cursor = pygame.Rect(rect.topright, (3, rect.height))
     
     pygame.draw.rect(ekraan, (250, 250, 250),
                      [350, 310, 100, 40], 0)
@@ -133,7 +146,7 @@ def liikumine_lk3():
     
     pygame.draw.rect(ekraan, (250, 250, 250),
                      [205, 350, 100, 40], 0)
-    tekst8 = font1.render("MENÜÜ", True, must)
+    tekst8 = font1.render("TAGASI", True, must)
     ekraan.blit(tekst8, (Nupp_liikumine.x + 180, Nupp_liikumine.y + 120))
     
 def korjamine_lk1():
@@ -156,7 +169,7 @@ def korjamine_lk1():
     
     pygame.draw.rect(ekraan, (250, 250, 250),
                      [205, 350, 100, 40], 0)
-    tekst8 = font1.render("MENÜÜ", True, must)
+    tekst8 = font1.render("TAGASI", True, must)
     ekraan.blit(tekst8, (Nupp_liikumine.x + 180, Nupp_liikumine.y + 120))
 
 def korjamine_lk2():
@@ -200,7 +213,7 @@ def korjamine_lk3():
     
     pygame.draw.rect(ekraan, (250, 250, 250),
                      [205, 350, 100, 40], 0)
-    tekst8 = font1.render("MENÜÜ", True, must)
+    tekst8 = font1.render("TAGASI", True, must)
     ekraan.blit(tekst8, (Nupp_liikumine.x + 180, Nupp_liikumine.y + 120))
 
 while True:
@@ -225,6 +238,15 @@ while True:
                  praegune_ekraan = 'liikumine3'
             if nupp_tagasi.collidepoint(event.pos):
                  praegune_ekraan = 'liikumine1'
+            if sisestus.collidepoint(event.pos):
+                active = True
+            else:
+                active = False
+        elif praegune_ekraan == 'korjamine2' and event.type == pygame.KEYDOWN and active:
+            if event.key == pygame.K_BACKSPACE:
+                user_tekst = user_tekst[:-1]
+            else:
+                user_tekst += event.unicode
         elif praegune_ekraan == 'liikumine3' and event.type == pygame.MOUSEBUTTONDOWN:
             if Nupp_menüü.collidepoint(event.pos):
                 praegune_ekraan = 'tutorial_menüü'
@@ -240,6 +262,18 @@ while True:
                  praegune_ekraan = 'korjamine3'
             if nupp_tagasi.collidepoint(event.pos):
                 praegune_ekraan = 'korjamine1'
+            if sisestus.collidepoint(event.pos):
+                active = True
+            else:
+                active = False
+        elif praegune_ekraan == 'korjamine2' and event.type == pygame.KEYDOWN:
+            if event.key == pygame.K_BACKSPACE:
+                user_tekst = user_tekst[:-1]
+            else:
+                user_tekst += event.unicode
+            img = font.render(text, True, (255, 0, 0))
+            rect.size = img.get_size()
+            cursor.topleft = rect.topright
         elif praegune_ekraan == 'korjamine3' and event.type == pygame.MOUSEBUTTONDOWN:
             if nupp_tagasi.collidepoint(event.pos):
                 praegune_ekraan = 'korjamine2'
